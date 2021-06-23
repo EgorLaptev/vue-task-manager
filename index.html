@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" contet="width=device-width, intial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Vue</title>
+</head>
+<body>
+
+<section class="tasks" id="tasks">
+
+    <form class="tasks__form" @submit.prevent="addTask">
+        <input type="text" placeholder="Title" v-model="newTask.title" required autofocus>
+        <textarea rows="5" placeholder="Content" v-model="newTask.content" required></textarea>
+        <input type="submit" value="Add">
+    </form>
+
+    <div class="tasks__tabs">
+        <button class="task-tabs__btn" @click="tasksTab='uncompleted'" :class=" tasksTab == 'uncompleted' ? 'active' : '' ">Uncompleted</button>
+        <button class="task-tabs__btn" @click="tasksTab='completed'" :class=" tasksTab == 'completed' ? 'active' : '' ">Completed</button>
+    </div>
+
+    <ul class="tasks__list">
+        <task v-if="tasksTab == 'uncompleted'" v-for="task in uncompletedTasks" :title="task.title" @done="doneTask(task.id)" @remove="removeTask(task.id)"> {{ task.content }} </task>
+        <task v-if="tasksTab == 'completed'" v-for="task in completedTasks" :title="task.title" @done="doneTask(task.id)" @remove="removeTask(task.id)"> {{ task.content }} </task>
+    </ul>
+
+</section>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src='script.js'></script>
+
+</body>
+</html>

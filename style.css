@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #222;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Arial;
+    overflow-x: hidden;
+}
+
+.tasks {
+    width: 80%;
+    max-width: 1000px;
+}
+
+.tasks__form  {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    margin-top: 100px;
+}
+
+.tasks__form input,
+.tasks__form textarea {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    resize: none;
+}
+
+.tasks__form input[type='submit'] {
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+}
+
+.tasks__list {
+    margin: 0;
+    margin-top: 50px;
+    padding: 0;
+    font-size: 1.5em;
+}
+
+.task {
+    background-color: #171717;
+    padding: 25px;
+    margin: 10px 0;
+    border-radius: 3px;
+}
+
+.task__title {
+    margin-top: 0;
+}
+
+.task__done,
+.task__remove {
+    padding: 10px 20px;
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+.task__remove {
+    background-color: red;
+    margin-left: 10px;
+}
+
+.tasks__tabs {
+    float: right;
+    margin-top: 15px;
+}
+
+.tasks__tabs button {
+    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: white;
+    color: #111;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 17px;
+}
+
+.tasks__tabs button.active {
+    background-color: dodgerblue;
+    color: white;
+}
